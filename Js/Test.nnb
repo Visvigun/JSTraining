@@ -1,0 +1,273 @@
+{
+    "cells": [
+        {
+            "language": "javascript",
+            "source": [
+                "// given an array arr = [1, 2, 3, 4] return a array which is a multiple of current number and previous number [1, 2, 6, 12]\r\n\r\nlet arr = [1,2,3,4]\r\nlet newArr = [];\r\nfor(let i=0;i<arr.length;i++) {\r\n    let value = 1;\r\n    if(arr[i]===arr[0]){  // i=0 another way\r\n        value = arr[i];\r\n     }\r\n    else{\r\n        value = arr[i] * arr[i-1];\r\n     }\r\n    newArr.push(value)\r\n}\r\nconsole.log(newArr)"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "[ 1, 2, 6, 12 ]",
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "/*\r\nFor yazhini\r\n\r\ngiven an array arr = [1, 2, 3, 4]\r\nreturn an boolean array with values true (if the element is greater than next and less than previous)\r\n[true, true, true, true] \r\nas 1 is less than 2\r\nand 2 is greater than 1 and less than 3\r\nand 3 is greater than 2 and less than 4\r\nand 4 is greater than 3 \r\n\r\n*/\r\n\r\nlet arr = [1,3,2,4]\r\nlet newArrValue = [];\r\nfor(let i = 0; i < arr.length; i++) {\r\n    if(arr[i] > arr[i-1] && arr[i] < arr[i+1]){\r\n        newArrValue.push(true);\r\n    }\r\n    else if(i===0 && arr[i] < arr[i+1]) {\r\n        newArrValue.push(true)\r\n    }\r\n    else if(arr[i]===arr[arr.length-1] && arr[i] > arr[i-1]) {\r\n           newArrValue.push(true)\r\n    }\r\n    else {\r\n        newArrValue.push(false)\r\n    }\r\n    \r\n}\r\nconsole.log(newArrValue)"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "[ true, false, false, true ]",
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "// given two arrays arr1 = [1, 3, 2, 4] and arr2 = [1, 3, 5]\r\n// return an array of elements which exists in both the array [1, 3]\r\n\r\nlet arr1 = [1,2,3,4]\r\nlet arr2 = [1,3,5]\r\nlet sameArr = []\r\nfor(let i = 0; i < arr1.length; i++) {\r\n    for(let j = 0; j <arr2.length; j++) {\r\n        if(arr1[i] === arr2[j]) {\r\n            sameArr.push(arr2[j])\r\n        }\r\n    }\r\n}\r\nconsole.log(sameArr)"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "[ 1, 3 ]",
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "// given two arrays arr1 = [1, 3, 2, 4] and arr2 = [1, 3, 5]\r\n// return an array of elements which exists only in one array [2, 4, 5]\r\n\r\nlet array1 = [1,3,2,4]\r\nlet array2 = [1,3,5]\r\nlet diffArr = []\r\nfor(let i = 0; i < array1.length; i++) {\r\n    let found = false;\r\n    for(let j = 0; j < array2.length; j++){\r\n        if(array1[i] === array2[j]){\r\n            found = true;\r\n        }\r\n    }\r\n    if(found === false) {\r\n        diffArr.push(array1[i])\r\n    }\r\n}\r\nfor(let i = 0; i < array2.length; i++) {\r\n    let found = false;\r\n    for(let j = 0; j < array1.length; j++){\r\n        if(array2[i] === array1[j]){\r\n            found = true;\r\n        }\r\n    }\r\n    if(found === false) {\r\n        diffArr.push(array2[i])\r\n    }\r\n}\r\nconsole.log(diffArr)"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "[ 2, 4, 5 ]",
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "// given two arrays arr1 = [1, 3, 2, 4] and arr2 = [1, 3, 5]\r\n// return an array of elements which exists in any one one array (avoid repetations) [1, 3, 2, 4, 5]\r\n\r\nlet arr1 = [1,3,2,4]\r\nlet arr2 = [1,3,5]\r\nlet duplicateArr = []\r\n// let addArr = arr1.concat(arr2);\r\n\r\n// for(let i = 0; i < addArr.length; i++){\r\n//    if(duplicateArr.indexOf(addArr[i])===-1){\r\n//         duplicateArr.push(addArr[i])\r\n//    }\r\n// }\r\n// console.log(duplicateArr)\r\n\r\nlet addArr = []\r\nfor(let i = 0; i < arr1.length; i++) {\r\n   addArr.push(arr1[i])\r\n }\r\nfor(let i = 0; i < arr2.length; i++) {\r\n   addArr.push(arr2[i])\r\n}\r\n// console.log(addArr)\r\n\r\n// for(let i = 0; i < addArr.length; i++) {\r\n//    let found = false\r\n\r\n//    if(addArr[i] === addArr[i+1] && addArr[i] === addArr[i-1]) {\r\n//       found = true\r\n//    }\r\n//    else if(i===0 && addArr[i] === addArr[i+1]) {\r\n//       found = true\r\n//    }\r\n//    else if(addArr[i]===addArr[addArr.length - 1] && addArr[i] === addArr[i-1]) {\r\n//       found = true\r\n//    }\r\n//    if(found === false) {\r\n//       duplicateArr.push(addArr[i])\r\n//    }\r\n// }\r\n// console.log(duplicateArr)\r\nlet found = false\r\nfor(let i = 0; i < addArr.length; i++) {\r\n   if(i === 0){\r\n      duplicateArr.push(addArr[i])\r\n   }\r\n   else if(duplicateArr[i] === addArr[i]){\r\n      found = true\r\n   }\r\n   if(found === false) {\r\n      duplicateArr.push(addArr[i])\r\n   }\r\n}\r\nconsole.log(duplicateArr)"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "[",
+                                "  1, 1, 3, 2,",
+                                "  4, 1, 3, 5",
+                                "]",
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "// given an arrays arr1 = [1, 1, 0, 0, 0, 1] \r\n// find the largest occurance either 0 or 1\r\n\r\nlet arr1 = [1,1,0,0,0,1]\r\nlet store = 0\r\nlet storeVal = 0\r\nfor(let i = 0; i < arr1.length; i++) {\r\n    \r\n    if(arr1[i] === 1){\r\n        store = store+1;\r\n    }\r\n    else if(arr1[i] === 0) {\r\n        storeVal = storeVal+1;\r\n    }\r\n    \r\n}\r\nif(store === storeVal) {\r\n    console.log(\"Values are same\")\r\n}\r\nelse if(store < storeVal) {\r\n    console.log(\"0 is the largest occured, \" +storeVal+ \"times\")\r\n}\r\nelse if(store > storeVal) {\r\n    console.log(\"1 is the largest occured, \"+store+ \"times\")\r\n}\r\n"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "Values are same",
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "// given an arrays arr1 = [1, 1, 0, 0, 0, 1, 2, 3,3,3 ]\r\n// find which numbers which occurs n times (eg: n= 3, answer is [1, 0, 3] as these numbers came 3 times)\r\n\r\nlet n = 3;\r\nlet newArr = []\r\narr1 = [1,1,0,0,0,1,2,3,3,3]\r\nlet occur = 1;\r\nlet result = 0;\r\nfor(let i = 0; i < arr1.length; i++) {\r\n     \r\n    if(arr1[i] === arr1[i-1]) {\r\n        occur += 1; \r\n        // console.log(occur)\r\n        if(occur >= n){\r\n            result ++;\r\n        }\r\n    }\r\n    else {\r\n        occur = 1\r\n    }\r\n}\r\n console.log(result)\r\n"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "2",
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "// You are required to enter a word that consists of x and ythat denote the number of Zs and Os respectively.\r\n// The input word is considered similar to word zoo if\r\n\r\n// 2 * x = y\r\n\r\n// Determine if the entered word is similar to word zoo.\r\n\r\n// For example, words such as zzoooo and zzzoooooo are similar to word zoo but not the words such as zzooo and zzzooooo.\r\n\r\nlet word = \"zzzoooooo\"\r\nlet store_z = 0\r\nlet store_o = 0\r\nfor(let i = 0; i < word.length; i++) {\r\n    \r\n    if(word[i] === \"z\") {\r\n        store_z += 1;\r\n    }\r\n    else if(word[i] === \"o\") {\r\n        store_o += 1;\r\n    }\r\n}\r\n// console.log(store_z)\r\n// console.log(store_o)\r\n\r\nif(store_o === 2*(store_z)) {\r\n    console.log(true)\r\n}\r\nelse {\r\n    console.log(false)\r\n}"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "true",
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "// Max Loan amount sanction calculator\r\n// Inputs\r\n\r\n// 1.Loan amount needed\r\n// 2.Annual Income\r\n// 3.Age\r\n// 4.Gender\r\n// 5.Urban or Rural\r\n\r\n// Conditions\r\n\r\n//1. maximum loan amount sanctioned cannot be more than 90% of loan amount needed\r\n//2. maximum loan amount sanctioned cannot be more than 50% of annual income\r\n//3. For age less than 30 additional 5% of amount can be sanctioned than the above maximum\r\n//4. For Gender Female additional 5% of amount can be sanctioned than the above maximum\r\n//5. For Urban location additional 5% of amount can be sanctioned than the above maximum\r\n\r\n// Output\r\n\r\n// Return the sanctioned amount\r\n\r\nlet loanAmount = 100000\r\nlet annualIncome = 150000\r\nlet familyIncome = 300000 //40%\r\nlet age = 25\r\nlet gender = \"Male\"\r\nlet area = \"Urban\"\r\n\r\nlet sanctionLoan_90 = loanAmount * (90/100)\r\n//  console.log(sanctionLoan_90)\r\n\r\nlet sanctionLoan_annualIncome = annualIncome * (50/100)\r\n// console.log(sanctionLoan_annualIncome)\r\n\r\nlet sanctionLoan_family_annualIncome = familyIncome * (40/100)\r\n //console.log(sanctionLoan_family_annualIncome)\r\n\r\nlet extraSanctionedAmount_5 = loanAmount * (5/100)\r\n// console.log(extraSanctionedAmount_5)\r\n\r\n let currentSanctionedAmount = loanAmount\r\n\r\nif(currentSanctionedAmount > sanctionLoan_90) {\r\n  //  console.log(sanctionLoan_90)\r\n\r\n    currentSanctionedAmount =  sanctionLoan_90\r\n}\r\nif(currentSanctionedAmount > sanctionLoan_annualIncome) {\r\n   // console.log(sanctionLoan_annualIncome)\r\n\r\n    currentSanctionedAmount = sanctionLoan_annualIncome\r\n}\r\nif(currentSanctionedAmount > sanctionLoan_family_annualIncome) {\r\n    //console.log(sanctionLoan_family_annualIncome)\r\n\r\n    currentSanctionedAmount = sanctionLoan_family_annualIncome\r\n}\r\n\r\nif(age < 30) {\r\n    currentSanctionedAmount += extraSanctionedAmount_5\r\n}\r\nif(gender === \"Female\") {\r\n    currentSanctionedAmount += extraSanctionedAmount_5\r\n}\r\nif(area === \"Urban\") {\r\n    currentSanctionedAmount += extraSanctionedAmount_5\r\n}\r\nconsole.log(currentSanctionedAmount)"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "85000",
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "// 1.Save the below students and their marks in a Map and answer the below questions\r\n// Ram 123\r\n\r\n// Yazhini 345\r\n\r\n// Somu. 444\r\n\r\n// Surya. 121\r\n\r\n// Jemima 555\r\n\r\n\r\n\r\n// 2.Is Ram's mark is greater than Surya?\r\n\r\n// 3.Is sum of Ram and Surya is greater than Yazhini?\r\n\r\n// 4.What is difference between the marks of Jemima and Somu?\r\n\r\n\r\nlet newMap = new Map()\r\nnewMap.set(\"Ram\", 123)\r\nnewMap.set(\"Yazhini\", 345)\r\nnewMap.set(\"Somu\", 444)\r\nnewMap.set(\"Surya\", 121)\r\nnewMap.set(\"Jemima\", 555)\r\n\r\nconsole.log(newMap)\r\nconsole.log(newMap.get(\"Ram\"))\r\nconsole.log(newMap.size)\r\n\r\nif(newMap.get(\"Ram\") > newMap.get(\"Surya\")) {\r\n    console.log(\"Yes\")\r\n}\r\nelse{\r\n    console.log(\"No\")\r\n}\r\n\r\nlet sumOfR_S = newMap.get(\"Ram\") + newMap.get(\"Surya\")\r\nconsole.log(sumOfR_S)\r\n\r\nif(sumOfR_S > newMap.get(\"Yazhini\")) {\r\n    console.log(\"Yes\")\r\n}\r\nelse{\r\n    console.log(\"No\")\r\n}\r\n\r\nlet diffOfJe_So = newMap.get(\"Jemima\") - newMap.get(\"Somu\")\r\nconsole.log(diffOfJe_So)"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "Map(5) {",
+                                "  'Ram' => 123,",
+                                "  'Yazhini' => 345,",
+                                "  'Somu' => 444,",
+                                "  'Surya' => 121,",
+                                "  'Jemima' => 555",
+                                "}",
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "// Using Set remove the duplicates in the array arr = [1, 2, 3, 3, 2, 3, 5, 6, 7, 6, 8, 0, 0]\r\n\r\nlet arr = [1, 2, 3, 3, 2, 3, 5, 6, 7, 6, 8, 0, 0]\r\n\r\nlet newArr = new Set(arr)\r\nconsole.log(newArr)"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "Set(8) { 1, 2, 3, 5, 6, 7, 8, 0 }",
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "// given an arrays arr1 = [1, 1, 0, 0, 0, 1, 2, 3,3,3 ]\r\n// find which numbers which occurs n times (eg: n= 3, answer is [1, 0, 3] as these numbers came 3 times)\r\n\r\nlet arr1 = [1,1,0,0,0,1,2,3,3,3]\r\nlet n = 3\r\nlet newMap = new Map()\r\nlet newSet = new Set()\r\n\r\nfor(let i = 0; i < arr1.length; i++) {\r\n    if(newMap.has(arr1[i])) {\r\n        newMap.set(arr1[i], newMap.get(arr1[i]) + 1)\r\n    } else {\r\n        newMap.set(arr1[i], 1)\r\n    }\r\n    if( newMap.get(arr1[i]) >= n) {\r\n        newSet.add(arr1[i])\r\n    }\r\n}\r\nconsole.log(newMap)\r\nconsole.log(newSet)\r\n\r\n"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "Map(4) { 1 => 3, 0 => 3, 2 => 1, 3 => 3 }",
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "// given a string find the occurrence of each digits\r\n// str = \"abcbdadbcadasda\"\r\n\r\nlet str = \"abcbdadbcadasda\"\r\nlet newMap = new Map()\r\nlet newSet = new Set()\r\n\r\nfor(let i = 0; i < str.length; i++) {\r\n    if(newMap.has(str[i])) {\r\n        newMap.set(str[i], newMap.get(str[i]) + 1)\r\n    } else {\r\n        newMap.set(str[i], 1)\r\n    }\r\n    // if( newMap.get(str[i]) >= n) {\r\n    //     newSet.add(str[i])\r\n    // }\r\n}\r\nconsole.log(newMap)\r\n// console.log(newSet)"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "Map(5) { 'a' => 5, 'b' => 3, 'c' => 2, 'd' => 4, 's' => 1 }",
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
