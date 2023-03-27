@@ -1,0 +1,139 @@
+Question 1
+There a two brothers ashok and somu. 
+Their father gave them x fruits and ask them to split equally between each other. 
+Somu doesn't like fruits so he give 20% of his share to ashok. 
+Find the number of fruits ashok and babu has at the end.
+
+percentage_value = value * percentage / 100
+
+Eg: 
+x_fruits = 40
+answer:
+ashok has 24 fruits
+babu has 16 fruits
+
+viewof q2_fruits = Inputs.number([0, Infinity], {step: 1, label: "fruits", placeholder: ""})
+
+{
+ let x_fruits = q2_fruits;
+
+
+let splitValue = x_fruits/2;
+let percentage_value = splitValue*(20/100);
+ let ashok_fruits_count = splitValue +percentage_value;
+  //return ashok_fruits_count;
+  // newline = "\n"
+ let babu_fruits_count = splitValue-percentage_value;
+  
+  return "ashok has " + ashok_fruits_count +" fruits \n babu has "+ babu_fruits_count + " fruits"
+ 
+
+
+}
+
+
+{
+ let x_fruits = q2_fruits;
+
+
+let splitValue = x_fruits/2;
+ let ashok_fruits_count = splitValue +(splitValue*(20/100));
+  //return ashok_fruits_count;
+  // newline = "\n"
+ let babu_fruits_count = splitValue-(splitValue*(20/100));
+  
+  return "ashok has " + ashok_fruits_count +" fruits \n babu has "+ babu_fruits_count + " fruits"
+ 
+
+
+}
+
+
+2. viewof unit_convertor = Inputs.form({
+  value: Inputs.number([0, Infinity], {step: 1, label: "Value in km", placeholder: ""}),
+  unit: Inputs.select(["cm", "m", "feet"], {label: "Select one"}),
+})
+
+{
+  let unit = unit_convertor.unit
+  let km = unit_convertor.value
+  // conversion 1000 meters = 1 km , 3280.84 feet = 1 km, 100000 cm = 1 km
+  
+  // Step 1 check unit input is cm
+  // Step 2 if unit is cm, return value * 100000
+  // Step 3 check unit input is m
+  // Step 4 if unit is m, reurn value * 1000
+  
+  if (unit == "cm"){
+    return km*100000
+  }
+  if( unit=="m"){
+    return km*1000
+  }
+  if ( unit=="feet"){
+    return km*3280
+  }
+
+  
+}
+
+3. viewof calc_inputs = Inputs.form({
+  value1: Inputs.number([0, Infinity], {step: 1, label: "Value1", placeholder: ""}),
+  value2: Inputs.number([0, Infinity], {step: 1, label: "Value2", placeholder: ""}),
+  action: Inputs.select(["add", "subtract", "multiply", "divide", "modulos"], {label: "Select action"}),
+})
+
+{
+  let value1 = calc_inputs.value1
+  let value2 = calc_inputs.value2
+  let action = calc_inputs.action
+  if(action === "add"){
+    return value1 + value2
+  }
+  else if(action === "subtract"){
+  return value1 - value2
+}
+ else if(action === "multiply"){
+  return value1 * value2
+}
+ else if(action === "divide"){
+  return value1 / value2
+}
+ else if(action === "modulos"){
+  return value1 % value2
+ }
+ }
+
+4. {
+  // create a new array which contains values less than limit from array_input
+  let limitArray = [];
+
+  for(var i=0;i<=array_input.length-1;i++){
+    if(array_input[i]<5){
+      limitArray.push(array_input[i])
+    }
+    
+  }
+    return limitArray
+  }
+
+5. {
+  // join the array values with "-"
+ let join = "-"
+  let newarr_list = []
+  let length = array_input.length
+  for(var i=0;i<length;i++){
+    newarr_list += array_input[i]
+    if(i < length-1) newarr_list +=join
+  } 
+  return newarr_list
+}
+
+
+6. {
+  // create a new array with values of array1 and then values of array2
+  let newArr = [];
+  for(var i=0; i<array_input.length;i++){
+    return newArr.push(array_input[i])
+  }
+}
