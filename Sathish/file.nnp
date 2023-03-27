@@ -1,0 +1,181 @@
+abstract	arguments	await*	boolean
+
+break	byte	case	catch
+
+char	class*	const	continue
+
+debugger	default	delete	do
+
+double	else	enum*	eval
+
+export*	extends*	false	final
+
+finally	float	for	function
+
+goto	if	implements	import*
+
+in	instanceof	int	interface
+
+let*	long	native	new
+
+null	package	private	protected
+
+public	return	short	static
+
+super*	switch	synchronized	this
+
+throw	throws	transient	true
+
+try	typeof	var	void
+
+volatile	while	with	yield
+
+Using var
+Using let
+Using const
+Using nothing
+
+//JavaScript Identifiers
+
+All JavaScript variables must be identified with unique names.
+
+These unique names are called identifiers.
+
+Identifiers can be short names (like x and y) or more descriptive names (age, sum, totalVolume).
+
+The general rules for constructing names for variables (unique identifiers) are:
+
+Names can contain letters, digits, underscores, and dollar signs. Names must begin with a letter. Names can also begin with $ and _ (but we will not use it in this tutorial). Names are case sensitive (y and Y are different variables). Reserved words (like JavaScript keywords) cannot be used as names.
+
+//Variable Name
+
+abcd      yes    
+ab_cd     yes    
+accd_     yes    
+A12323B   yes    
+a12323B   yes    
+a12323b    yes    
+123AB     no        (should not start with letter)
+CD@RTF    yes
+__abc     yes
+console   no        (console is a reserved keyword used for printing in console)
+$ABD      yes
+$         yes
+_         yes
+Comments - information inside the code which will not effect the way the program works
+Different ways to comment in javascript?
+multiple lines comments : 
+/*this  my laptop,
+where are you from
+*/
+
+
+//Variable naming - Good Practice
+
+variable name should always start with smaller case (eg: counter, address, city)
+variable with multiple words should be separated by "_" (eg: phone_number, employee_name)
+variable name should be a noun (eg: city, vehicle, quantity) (should not use verbs like: run, stop, activate)
+variable name should represent the value it contains (eg: vehilce_name = "honda") (not like a = "honda")
+array variable should always be plural, other variables should not be plural.
+
+--------------//
+
+//Practice sample - change the variable names to appropriate ones
+
+let sum_of_two_numbers = "1" + "2" 
+let fruit = "apple"
+let laptop = "ASUS"
+let furnitures = ["table", "chair", "desk"]
+let is_battery_charged = false // checking for battery charge 
+let height_cm = 170 // height of a person in cm 
+let elements_of_nature= ["air", "water", "fire"]
+let alphabets = ["a", "b", "c", "d", "e", "f"]
+let numbers = [1, 2, 3, 4, 5, 6, 7,8]
+let even_numbers = [2, 4, 6, 8, 10]
+let multiples_of_three = [3, 6, 9, 12]
+let max_height_cars = a < b // a and b are heights of cars
+
+--------//
+
+//Datatypes
+
+JavaScript has 8 Datatypes
+
+String
+Number
+Boolean
+Undefined
+Null
+Object
+
+Bigint
+
+Symbol
+The Object Datatype The object data type can contain:
+
+An object
+An array
+A date
+
+
+----------//
+
+//Operators
+Types of JavaScript Operators There are different types of JavaScript operators:
+
+Arithmetic Operators
+Assignment Operators
+Comparison Operators
+Logical Operators
+Conditional Operators
+Type Operators
+Operator	Description
++	Addition
+-	Subtraction
+*	Multiplication
+**	Exponentiation (ES2016)
+/	Division
+%	Modulus (Division Remainder)
+++	Increment
+--	Decrement
+Operator	Example	Same As
+=	x = y	x = y
++=	x += y	x = x + y
+-=	x -= y	x = x - y
+*=	x *= y	x = x * y
+/=	x /= y	x = x / y
+%=	x %= y	x = x % y
+**=	x **= y	x = x ** y
+
+//operator	Description
+==	equal to
+===	equal value and equal type
+!=	not equal
+!==	not equal value or not equal type
+>	greater than
+<	less than
+>=	greater than or equal to
+<=	less than or equal to
+?	ternary operator
+Operator	Description
+&&	logical and
+||	logical or
+!	logical not
+
+//&& operator
+first value       second value         result
+true               true                 true 
+true               false                false
+false              true                 false
+false              false                false
+
+
+|| operator
+first value       second value         result
+true               true                true  
+true               false               true
+false              true                true
+false              false               false
+
+
+
